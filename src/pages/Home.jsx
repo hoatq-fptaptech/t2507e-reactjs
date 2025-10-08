@@ -1,4 +1,5 @@
 import { Carousel } from "react-bootstrap";
+import "./../assets/css/home.css"
 function Home(){
     return (
         <div className="container">
