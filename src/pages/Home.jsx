@@ -1,6 +1,7 @@
 import { Carousel } from "react-bootstrap";
 import "./../assets/css/home.css"
 import Section1 from "../components/Section1";
+import Weather from "../components/Weather";
 function Home(){
     const data = {
         msg: "Hello T2507E",
@@ -9,6 +10,7 @@ function Home(){
     return (
         <div className="container">
             <h1>Home Page</h1>
+            <Weather/>
             <Section1 message={data.msg} sts={4}/>
             <Section1 message={data.chat} sts={5}/>
             <Carousel>
