@@ -1,9 +1,16 @@
 import { Carousel } from "react-bootstrap";
 import "./../assets/css/home.css"
+import Section1 from "../components/Section1";
 function Home(){
+    const data = {
+        msg: "Hello T2507E",
+        chat: "Goodbye"
+    }
     return (
         <div className="container">
             <h1>Home Page</h1>
+            <Section1 message={data.msg} sts={4}/>
+            <Section1 message={data.chat} sts={5}/>
             <Carousel>
                 <Carousel.Item>
                     <img src="/images/blue_ocean.jpg" />
