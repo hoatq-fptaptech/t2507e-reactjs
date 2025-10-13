@@ -1,9 +1,20 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 function Section1(props){
     const msg = props.message; // định nghĩa cách nhận dữ liệu
     const stars = props.sts;
     // khai báo 1 state
     const [count,setCount] = useState(0); // let count = 0
+    const [count2,setCount2] = useState(0); // let count = 0
+
+    useEffect(function(){
+        console.log("After render, run 1");
+    },[]);
+    useEffect(function(){
+        console.log("Listen Count...");
+    },[count]);
+    useEffect(function(){
+        console.log("Listen Count22222...");
+    },[count2]);
     function increment(){
         // tăng giá trị biến count lên
         setCount(count + 1);// hiểu: count = count + 1
@@ -14,6 +25,7 @@ function Section1(props){
             setCount(count - 1);
         // setCount(count>0?count-1:0);
     }
+    console.log("Before render");
     return (
         <div className="container">
             <h2>{msg}</h2>

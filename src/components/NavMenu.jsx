@@ -23,7 +23,7 @@ function NavMenu(){
                     <a className="nav-link" href="#">Login</a>
                     </li>
                     <li className="nav-item">
-                    <a className="nav-link" href="#">Register</a>
+                    <Link className="nav-link" to="/register">Register</Link>
                     </li>
                     <li className="nav-item">
                     <a className="nav-link" href="#">About us</a>

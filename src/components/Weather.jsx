@@ -8,6 +8,7 @@ function Weather(){
             pressure:1000
         }
     );
+    const [forecast,setForecast] = useState([]);
     function getWeather(){ // gọi dữ liệu từ api về nạp vào biến data
         const url = `https://api.openweathermap.org/data/2.5/weather?q=hanoi&appid=09a71427c59d38d6a34f89b47d75975c&units=metric`;
         fetch(url).then(rs=>rs.json())
@@ -19,6 +20,11 @@ function Weather(){
                 pressure: dt.main.pressure
             }
             setData(x);
+        });
+        const url2 = `https://api.openweathermap.org/data/2.5/forecast?q=hanoi&appid=09a71427c59d38d6a34f89b47d75975c&units=metric`;
+        fetch(url2).then(rs=>rs.json())
+        .then(function(dt){
+            setForecast(dt.list);
         });
     }
 
@@ -36,6 +42,17 @@ function Weather(){
             <h3>Nhiệt độ: {data.temp}<sup>o</sup>C</h3>
             <h4>Độ ẩm: {data.humidity}%</h4>
             <h4>Áp suất: {data.pressure}</h4>
+            <div className="forecast">
+                {
+                    forecast.map((e,i)=>{
+                        return (
+                            <div className="card" key={i}>
+                                <h3>Nhiệt độ {e.main.temp}</h3>
+                            </div>
+                        )
+                    })
+                }
+            </div>
         </>
     );
 }
