@@ -10,7 +10,7 @@ function Home(){
     return (
         <div className="container">
             <h1>Home Page</h1>
-            {/* <Weather/> */}
+            <Weather/>
             <Section1 message={data.msg} sts={4}/>
             <Section1 message={data.chat} sts={5}/>
             <Carousel>
