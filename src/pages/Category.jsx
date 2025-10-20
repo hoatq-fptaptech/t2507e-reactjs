@@ -5,12 +5,17 @@ import { useEffect, useState } from "react";
 function Category(){
     const [categories,setCategories] = useState([]);
     const [products,setProducts] = useState([]);
-    const get_cat = ()=>{
+    const get_cat = async ()=>{
+        // const url = "https://dummyjson.com/product/categories";
+        // fetch(url) // chờ...
+        // .then(rs=>rs.json())
+        // .then(data=>{
+        //     setCategories(data);
+        // });
         const url = "https://dummyjson.com/product/categories";
-        fetch(url).then(rs=>rs.json())
-        .then(data=>{
-            setCategories(data);
-        });
+        const rs = await fetch(url); // chờ
+        const data = await rs.json(); // chờ
+        setCategories(data);
     }
     const get_prod = ()=>{
         const url = "https://dummyjson.com/product/category/beauty";
