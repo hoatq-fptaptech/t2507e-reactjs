@@ -18,10 +18,10 @@ function Category(){
         setCategories(data);
     }
     const get_prod = ()=>{
-        const url = "https://dummyjson.com/product/category/beauty";
+        const url = "http://localhost:8888/api/v1/latest_products.php";
         fetch(url).then(rs=>rs.json())
         .then(data=>{
-            setProducts(data.products);
+            setProducts(data.data);
         })
     }
     useEffect(function(){

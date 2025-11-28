@@ -8,7 +8,7 @@ function Product(props){
             <Card.Img variant="top" src={product.thumbnail}/>
             <Card.Body>
                 <h5>
-                    <Link to={"/product/"+product.id}>{product.title}</Link>
+                    <Link to={"/product/"+product.id}>{product.name}</Link>
                 </h5>
                 <p>${product.price}</p>
             </Card.Body>

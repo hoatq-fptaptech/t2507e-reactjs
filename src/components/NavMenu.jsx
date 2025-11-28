@@ -1,6 +1,11 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import StoreContext from "../store/StoreContext";
+import { Badge } from "react-bootstrap";
 
 function NavMenu(){
+    const {store,setStore} = useContext(StoreContext);
+    const cart = store.cart;
     return (
         <nav className="navbar navbar-expand-lg bg-body-tertiary">
             <div className="container">
@@ -17,9 +22,6 @@ function NavMenu(){
                         <Link className="nav-link" to="/category">Category</Link>
                     </li>
                     <li className="nav-item">
-                    <a className="nav-link" href="#">Cart</a>
-                    </li>
-                    <li className="nav-item">
                     <a className="nav-link" href="#">Login</a>
                     </li>
                     <li className="nav-item">
@@ -30,6 +32,9 @@ function NavMenu(){
                     </li>
                     <li className="nav-item">
                     <a className="nav-link" href="#">Contact us</a>
+                    </li>
+                    <li className="nav-item">
+                    <Link className="nav-link" to="/cart">Cart <Badge color="primary" >{cart.length}</Badge></Link>
                     </li>
                 </ul>
                 <form className="d-flex" role="search">
