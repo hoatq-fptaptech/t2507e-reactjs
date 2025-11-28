@@ -5,6 +5,24 @@ import StoreContext from "../store/StoreContext";
 function Checkout(){
     const {store,setStore} = useContext(StoreContext);
     const cart = store.cart;
+    const createOrder = async ()=>{
+        const dataToSend = {
+            customer_name:"Quang Hoa",
+            customer_tel: "0987654321",
+            customer_address: "13b Trinh Van Bo",
+            payment_method: "COD",
+            cart: cart
+        }
+        const url = "http://localhost:8888/api/v1/create_order.php";
+        const rs = await fetch(url, {
+            method: "POST",
+            headers: {
+                'Content-Type':'application/json'
+            },
+            body: JSON.stringify(dataToSend)
+        });
+
+    }
     return (
         <Container>
             <Row>
@@ -37,7 +55,7 @@ function Checkout(){
                         </div>
                     </div>
                     <div className="mb-3">
-                        <Button type="button" variant="primary">Place order</Button>
+                        <Button onClick={createOrder} type="button" variant="primary">Place order</Button>
                     </div>
                 </Col>
                 <Col xs={6}>
